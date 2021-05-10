@@ -42,7 +42,7 @@ butons.addEventListener("click", function () {
 
 
 
-
+window.onload = CreateBox(5);
 window.onload = document.querySelectorAll(".color")[0].className = "color selected"
 
 let black = document.getElementsByClassName("color")[0];
