@@ -1,7 +1,4 @@
 document.querySelectorAll(".color")[0].style.background = "black";
-document.querySelectorAll(".color")[1].style.background = "violet";
-document.querySelectorAll(".color")[2].style.background = "salmon";
-document.querySelectorAll(".color")[3].style.background = "yellow";
 
 let tabble = document.querySelector("#pixel-board");
 
@@ -14,9 +11,7 @@ function CreateBox(event) {
       let colunasTd = document.createElement("td");
       colunasTd.className = "coluna pixel"
       linhasTr.appendChild(colunasTd);
-
     }
-
   }
 }
 
@@ -32,17 +27,27 @@ butons.addEventListener("click", function () {
   }
   
   let inputs = document.getElementById("board-size").value;
+  
 
+  if(inputs === ""){
+    alert("Board inválido!")
+  }
+
+  if( inputs <= 5  ){
+    inputs = 5;
+  }
+  if(inputs >= 50){
+    inputs = 50;
+  }
+
+ 
   CreateBox(inputs);
 
-  
 
 });
 
-
-
-
 window.onload = CreateBox(5);
+
 window.onload = document.querySelectorAll(".color")[0].className = "color selected"
 
 let black = document.getElementsByClassName("color")[0];
@@ -85,3 +90,17 @@ botaoApagar.addEventListener("click", function () {
   }
 
 });
+
+function RandomColor(){
+
+let color1 = Math.random() * 255;
+let color2 = Math.random() * 255; 
+let color3 = Math.random() * 255;
+
+return `rgb(${color1},${color2},${color3})`;
+
+}
+
+yellow.style.backgroundColor = RandomColor();
+salmon.style.backgroundColor = RandomColor();
+violet.style.backgroundColor = RandomColor();
